@@ -9,13 +9,11 @@ CURSOR all_bookings   IS
      SELECT id, tracking_id, first_name,last_name,email, phone,room, adult, child, checkin_date, checkout_date, booking_date, hotel_id, user_id, price
  FROM book_booking;
 
-3)
-CURSOR bookings_price_asc
+3) CURSOR bookings_price_asc
    IS
      SELECT id, tracking_id, first_name,last_name,email, phone,room, adult, child, checkin_date, checkout_date, booking_date, hotel_id, user_id, price
      FROM book_booking order by price;
-4)
-CURSOR bookings_price_desc
+4) CURSOR bookings_price_desc
    IS
      SELECT id, tracking_id, first_name,last_name,email, phone,room, adult, child, checkin_date, checkout_date, booking_date, hotel_id, user_id, price
      FROM book_booking order by price desc;
