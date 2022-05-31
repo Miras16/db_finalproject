@@ -2,7 +2,7 @@
 
 ## About project
 The project is a hotel booking system.  
-It consists of 997 Hotels taken from makemytrip hotel database.  
+It consists of 30 Hotels in Kazakhstan 
 User can search a city (**autocomplete** supported) and can sort through the search results. 
 
 ### Features overview
@@ -18,7 +18,7 @@ User can search a city (**autocomplete** supported) and can sort through the sea
  - Rating (Descending)
  - Price (Descending) 
 
-User can Signup or book a hotel without signup
+User can Signup or book a hotel without signup(track number)
 While Viewing a Hotel , user can view info, pictures, highlights, price, rating.  
 When booking a hotel , user can select checkin date and checkout date and other details.  
 Price for booking is created at front end and also at backend after submitting booking details
@@ -89,6 +89,30 @@ info about the models are as following
     - child (no of children booked)
     - checkin_date (check in date)
     - checkout_date (check in date)
+    
+ 4. Add_hotels
+    this is to store archive data
+    -hotel
+    -tracking id
+    -first_name
+    -last_name
+    -email
+    -phone
+    -room
+    -adult
+    -child
+    -checkin_date
+    -checkout_date
+    -booking_date
+    -price
+    -user
+    
+  5. UserArchive
+   -user_id
+   -username
+   -first_name
+   -last_name
+   -phone
 
 
 ### urls.py  
@@ -103,6 +127,7 @@ this file contains url routes for the app
  - book (booking page)
  - success (after a booking is successful)
  - track (track the booking with tracking_id)
+ - add_hotel(only for admins)
 
   
 ### views.py  
@@ -115,3 +140,9 @@ function based views.
  - create_price (generate price by hotel_id,room, no of adults,child,days)
  - book_hotel (POST request only ,book a hote withl)
  - successful (POST only, booking succesful page ,create a booking)
+ - callback
+ - -track_booking
+ - profile
+ - login,logout view
+ - register
+ - add_hotels
