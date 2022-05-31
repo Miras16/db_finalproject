@@ -2,7 +2,7 @@
 
 Cursors:
 all_categories
-CURSOR all_categories IS  SELECT id, category_id, category_name  FROM book_category;
+1) CURSOR all_categories IS  SELECT id, category_id, category_name  FROM book_category;
 
 2) all_bookings
 CURSOR all_bookings   IS
