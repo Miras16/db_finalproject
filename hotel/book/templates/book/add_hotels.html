@@ -1,0 +1,93 @@
+{% extends 'book/layout.html' %}
+
+{% block title %}
+Adding hotels - Hotels
+{% endblock %}
+
+{% block styles %}
+<style>
+    .collection-item {
+        height: 100px !important;
+    }
+</style>
+
+{% endblock %}
+
+{% block body %}
+
+
+
+<div style="margin-top: 15px;">
+    <form name='form' action="/add_hotels" method="POST">
+        {% csrf_token %}
+    <div class="row">
+
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="city" name="city" type="text" required="required">
+                        <label for="city" class="mycolor-text">City</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="name" name="name" type="text" required="required">
+                        <label for="name" class="mycolor-text">Name</label>
+                    </div>
+                </div>
+
+                    <div class="input-field col s6">
+                        <input id="address" name="address" type="text" required="required">
+                        <label for="address" class="mycolor-text">Address</label>
+                    </div>
+
+
+                <div class="input-field col s6">
+                        <input id="highlight" name="highlight" type="text" required="required">
+                        <label for="highlight" class="mycolor-text">Highlight</label>
+                    </div>
+
+                      <div class="row">
+                    <div class="input-field col s6">
+                        <input id="room_types" name="room_types" type="text" required="required">
+                        <label for="room_types" class="mycolor-text">Room types</label>
+                    </div>
+                      <div class="input-field col s6">
+                        <input id="rating" name="rating" type="number" required="required">
+                        <label for="rating" class="mycolor-text">Rating</label>
+                    </div>
+                          </div>
+
+
+                     <div class="input-field col s6">
+                        <input id="price" name="price" type="text" required="required">
+                        <label for="price" class="mycolor-text">Price</label>
+                    </div>
+                 <div class="input-field col s6">
+                        <input id="imgurls" name="imgurls" type="text" required="required">
+                        <label for="imgurls" class="mycolor-text">Image</label>
+                    </div>
+           <div class="input-field col s6">
+                        <input id="type" name="type" type="text" required="required">
+                        <label for="type" class="mycolor-text">Type</label>
+                    </div>
+
+
+
+                <div class="row" style="margin-bottom: 0;">
+                    <div class=" col s6">
+                        <p style="font-size: 20px;">
+                        </p>
+                    </div>
+                    <div class="col s6">
+                        {{form.as_p}}
+                        <button class="btn btn-large waves-effect waves-light mycolor right" type="submit"
+                            name="submit">
+                            Add hotel
+                        </button>
+                    </div>
+                </div>
+
+
+        </div>
+
+</form>
+</div>
+{% endblock %}

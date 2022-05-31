@@ -1,0 +1,380 @@
+{% extends "book/layout.html" %}
+{% load static %}
+{% load book_extras %}
+
+{% block body %}
+<!-- Section: Slider -->
+<section class="slider">
+    <ul class="slides">
+        <li>
+            <img src="{% static 'book/images/hotel1.jpeg' %}">
+            <!-- random image -->
+            <div class="caption right-align">
+                <h2 class="mycolor-text1">Take Your Dream Vacation</h2>
+            </div>
+        </li>
+        <li>
+            <img src="{% static 'book/images/hotel2.jpeg' %}">
+            <!-- random image -->
+            <div class="caption right-align">
+                <h2 class="mycolor-text1">We Work With All Budgets</h2>
+            </div>
+        </li>
+        <li>
+            <img src="{% static 'book/images/hotel3.jpeg' %}">
+            <!-- random image -->
+            <div class="caption right-align">
+                <h2 class="mycolor-text1">Group & Individual Getaways</h2>
+            </div>
+        </li>
+    </ul>
+</section>
+<style>
+:root {
+
+    --primary: #31293d;
+}
+
+.mycolor-text1{
+    color: #ffffff !important;
+    opacity:1;
+}
+.mycolor-text {
+    color: #000000 !important;
+    opacity:1;
+}
+</style>
+<!-- Section: Search -->
+<section id="search" class="section section-search mycolor white-text center scrollspy">
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <h3>Search Hotels</h3>
+                <form action="/search" method="get">
+                    {% csrf_token %}
+                    <div class="input-field">
+                        <input type="text" name="q" class="white grey-text autocomplete"
+                            placeholder="Atyrau, Aktobe, Almaty... ">
+                        <input type="submit" style="visibility: hidden;" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section: Popular Places -->
+<section id="popular" class="section section-popular scrollspy">
+
+    <div class="container">
+        <div class="row">
+            <h4 class="center">
+                <span class="mycolor-text">Popular</span> Hotels</h4>
+            {% for hotel in pop %}
+
+            <div class="col s12 m4">
+                <a href="/hotel/{{hotel.id}}" class="card" style="display: block;">
+                    <div class="card-image">
+                        <img src="{{hotel|get_first_img}}" height="180px" alt="">
+                        <span class="card-title">{{hotel.name}}</span>
+                    </div>
+                    <div class="card-content truncate black-text">
+                        {{hotel.address}}
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<style>
+body {
+  font-family: Arial;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  vertical-align: middle;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+  position: relative;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Six columns side by side */
+.column {
+  float: left;
+  width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+</style>
+<h2 style="text-align:center">Hotels Gallery</h2>
+
+<div class="container">
+  <div class="mySlides">
+    <div class="numbertext">1 / 6</div>
+    <img src="{% static 'book/images/hotel1.jpeg' %}" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">2 / 6</div>
+   <img src="{% static 'book/images/122626_8.jpg' %}" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">3 / 6</div>
+   <img src="{% static 'book/images/2019-02-20_5c6d0bf126111.jpg' %}" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">4 / 6</div>
+   <img src="{% static 'book/images/JBBCH14.jpg' %}" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">5 / 6</div>
+   <img src="{% static 'book/images/hotel1.jpeg' %}" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">6 / 6</div>
+   <img src="{% static 'book/images/122626_8.jpg' %}" style="width:100%">
+  </div>
+
+  <a class="prev" onclick="plusSlides(-1)">❮</a>
+  <a class="next" onclick="plusSlides(1)">❯</a>
+
+  <div class="caption-container">
+    <p id="caption"></p>
+  </div>
+
+  <div class="row">
+    <div class="column">
+      <img class="demo cursor" src="{% static 'book/images/hotel1.jpeg' %}" style="width:100%" onclick="currentSlide(1)" alt="The Woods">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="{% static 'book/images/122626_8.jpg' %}" style="width:100%" onclick="currentSlide(2)" alt="Cinque Terre">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="{% static 'book/images/2019-02-20_5c6d0bf126111.jpg' %}" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="{% static 'book/images/JBBCH14.jpg' %}" style="width:118%" onclick="currentSlide(4)" alt="Northern Lights">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="{% static 'book/images/hotel1.jpeg' %}" style="width:100%" onclick="currentSlide(5)" alt="Nature and sunrise">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="{% static 'book/images/122626_8.jpg' %}" style="width:100%" onclick="currentSlide(6)" alt="Snowy Mountains">
+    </div>
+  </div>
+</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section class="services">
+        <div class="container">
+        <div class="services_block">
+            <div class="services_square">
+                <img src="{% static 'book/images/icons1.png' %}" alt="constructor" class="services_ico">
+                <div class="services_descr">Free cancellation</div>
+            </div>
+            <div class="services_square">
+                  <img src="{% static 'book/images/icons2.png' %}" alt="constructor" class="services_ico">
+                <div class="services_descr">Price Guarantee</div>
+            </div>
+            <div class="services_square">
+                 <img src="{% static 'book/images/icons3.png' %}" alt="constructor" class="services_ico">
+                <div class="services_descr"><span>Comfort</span></div>
+            </div>
+            <div class="services_square">
+                  <img src="{% static 'book/images/icons4.png' %}" alt="constructor" class="services_ico">
+                <div class="services_descr">Quality</div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <style>
+    .services {
+        min-height: 350px;
+        padding: 50px 0 0;
+        background: url("..book/images/bg-image.png") center center/cover no-repeat;
+      }
+
+      .services_block {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .services_square {
+        width: 245px;
+        height: 245px;
+        background-color: #ffffff;
+        border: 1px solid rgba(204, 204, 204, 0.3);
+        border-radius: 150px;
+        box-shadow: 8px 8px 15px hsla(0, 0%, 80%, 0.3);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .services_square:hover {
+        box-shadow: none;
+      }
+
+      .services_ico {
+        margin-bottom: 25px;
+      }
+
+      .services_descr {
+        font-weight: 700;
+        font-size: 20px;
+      }
+
+      .services_learn {
+        display: flex;
+        justify-content: center;
+        margin: 85px 0;
+      }
+
+      .services_learn_title {
+        font-weight: 700;
+        font-size: 28px;
+        margin-right: 40px;
+      }
+
+</style>
+</body>
+</html>
+<script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("demo");
+  let captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+</script>
+
+{% endblock %}
+
+{% block script %}
+<script>
+    const slider = document.querySelector('.slider');
+    M.Slider.init(slider, {
+        indicators: false,
+        height: 400,
+        transition: 500,
+        interval: 6000
+    });
+
+    {% if message %}
+    M.toast({ html: 'Welcome! here {{user.first_name.capitalize}}', displayLength: 6000, classes: 'mycolor-text' })
+    {% endif %}
+
+</script>
+{% endblock %}
