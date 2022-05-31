@@ -1,4 +1,4 @@
-# Final project - **Hotel booking system**
+# Final project for Database Management Systems 2 course - **Hotel booking system in Kazakhstan**
 
 ## About project
 The project is a hotel booking system.  
@@ -141,7 +141,7 @@ function based views.
  - book_hotel (POST request only ,book a hote withl)
  - successful (POST only, booking succesful page ,create a booking)
  - callback
- - -track_booking
+ - track_booking
  - profile
  - login,logout view
  - register
