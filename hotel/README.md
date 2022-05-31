@@ -1,4 +1,4 @@
-# Final project for Database Management Systems 2 course - **Hotel booking system in Kazakhstan**
+# Final project for 'INF 305- Database Management Systems 2' course - **Hotel booking system in Kazakhstan** 2022 Spring
 
 ## About project
 The project is a hotel booking system.  
