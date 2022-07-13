@@ -1,4 +1,4 @@
-# INF 305 Database Management Systems 2. Spring 2022. Written by MIRUDI TEAM (Aru,Miras,Rufina) 
+# INF 305 Database Management Systems 2. Spring 2022. Written by MIRUDI TEAM (Aruzhan,Miras,Rufina) 
 
 Cursors:
 all_categories
